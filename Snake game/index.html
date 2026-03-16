@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪食蛇游戏</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 主菜单 -->
+        <div id="menu" class="menu">
+            <h1>贪食蛇游戏</h1>
+            <div class="menu-options">
+                <div class="option">
+                    <label for="difficulty">难度选择：</label>
+                    <select id="difficulty">
+                        <option value="easy">简单</option>
+                        <option value="medium" selected>中等</option>
+                        <option value="hard">困难</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="skin">皮肤选择：</label>
+                    <select id="skin">
+                        <option value="default" selected>默认</option>
+                        <option value="green">绿色</option>
+                        <option value="blue">蓝色</option>
+                    </select>
+                </div>
+                <div class="high-scores">
+                    <h3>最高分记录</h3>
+                    <div class="score-list">
+                        <div class="score-item">
+                            <span class="difficulty-label">简单：</span>
+                            <span id="high-score-easy">无记录</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="difficulty-label">中等：</span>
+                            <span id="high-score-medium">无记录</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="difficulty-label">困难：</span>
+                            <span id="high-score-hard">无记录</span>
+                        </div>
+                    </div>
+                </div>
+                <button id="start-btn">开始游戏</button>
+            </div>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="game" class="game hidden">
+            <div class="game-controls-hint">
+                <span>方向键：移动</span>
+                <span>回车键：暂停/继续</span>
+            </div>
+            <div class="game-info">
+                <div class="score">分数：<span id="score">0</span></div>
+                <div class="length">长度：<span id="length">3</span></div>
+            </div>
+            <canvas id="game-canvas" width="600" height="600"></canvas>
+        </div>
+
+        <!-- 游戏结束界面 -->
+        <div id="game-over" class="game-over hidden">
+            <h2>游戏结束</h2>
+            <p>最终分数：<span id="final-score">0</span></p>
+            <div id="new-record-section" class="new-record hidden">
+                <p class="congrats">🎉 恭喜！你创造了新纪录！</p>
+                <div class="name-input">
+                    <label for="player-name">请输入你的名字：</label>
+                    <input type="text" id="player-name" maxlength="10" placeholder="你的名字">
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="restart-btn">重新开始</button>
+                <button id="menu-btn">返回菜单</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/snake.js"></script>
+    <script src="js/food.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
